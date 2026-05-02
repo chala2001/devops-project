@@ -54,7 +54,7 @@ stages {
 
     stage('Deploy to EC2') {
         steps {
-            echo '=== Deploying to AWS EC2 ==='
+            echo '=== Deploying to AWS EC2 ===='
 
             sshPublisher(
                 publishers: [
