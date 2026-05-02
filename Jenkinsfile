@@ -68,10 +68,9 @@ stages {
                                 execCommand: """
                                     mkdir -p /home/ec2-user/app
                                     cd /home/ec2-user/app
-                                    pkill -f ${JAR_FILE} || true
-                                    sleep 2
-                                    nohup java -jar ${JAR_FILE} > app.log 2>&1 &
-                                    echo Application started successfully!
+                                    java -version
+                                    java -jar ${JAR_FILE}
+                                    echo Deployment completed successfully
                                 """
                             )
                         ]
@@ -85,7 +84,7 @@ stages {
 post {
     success {
         echo 'Pipeline completed SUCCESSFULLY!'
-        echo "Application deployed to: http://${EC2_HOST}:8081"
+        echo "Application deployed to EC2 successfully"
     }
 
     failure {
