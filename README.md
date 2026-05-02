@@ -6,7 +6,7 @@ A simple Java application demonstrating a complete DevOps workflow:
 - **CI/CD:** Jenkins Pipeline
 - **Cloud:** AWS EC2 (Free Tier)
 
-## Quick Start
+## Quick Start j
 ```bash
 mvn clean package
 java -jar target/hello-devops-1.0-SNAPSHOT.jar
