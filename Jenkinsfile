@@ -1,7 +1,7 @@
 pipeline {
 agent any
 
-
+```
 tools {
     maven 'Maven3'
     jdk 'JDK21'
@@ -54,7 +54,7 @@ stages {
 
     stage('Deploy to EC2') {
         steps {
-            echo '=== Deploying to AWS EC2 ===='
+            echo '=== Deploying to AWS EC2 ==='
 
             sshPublisher(
                 publishers: [
@@ -64,13 +64,12 @@ stages {
                             sshTransfer(
                                 sourceFiles: "target/${JAR_FILE}",
                                 removePrefix: 'target',
-                                remoteDirectory: '',
+                                remoteDirectory: '/home/ec2-user/app',
                                 execCommand: """
                                     mkdir -p /home/ec2-user/app
+                                    cd /home/ec2-user/app
                                     pkill -f ${JAR_FILE} || true
                                     sleep 2
-                                    mv ${JAR_FILE} /home/ec2-user/app/
-                                    cd /home/ec2-user/app
                                     nohup java -jar ${JAR_FILE} > app.log 2>&1 &
                                     echo Application started successfully!
                                 """
@@ -97,6 +96,6 @@ post {
         cleanWs()
     }
 }
-
+```
 
 }
