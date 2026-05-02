@@ -11,7 +11,7 @@ environment {
     APP_NAME = 'hello-devops'
     APP_VERSION = '1.0-SNAPSHOT'
     JAR_FILE = "${APP_NAME}-${APP_VERSION}.jar"
-    EC2_HOST = 'YOUR_EC2_PUBLIC_IP'   // Replace with your real EC2 public IP
+    EC2_HOST = 'YOUR_EC2_PUBLIC_IP'
     EC2_USER = 'ec2-user'
     REMOTE_DIR = '/home/ec2-user/app'
 }
